@@ -77,3 +77,72 @@ PGADMIN_DEFAULT_PASSWORD=admin
 
 To stop the services, run:
 docker-compose down
+
+🚀 Usage
+1. Key Pages
+
+2. Admin Access
+Admin Panel: http://localhost:8000/admin/ - Manage users, Garmnets
+
+Obtain Token: http://localhost:8000/api/token/
+Generate a JWT token by providing valid username and password.
+Method: POST
+
+Refresh Token: http://localhost:8000/api/token/refresh/
+Refresh an expired JWT token.
+Method: POST
+
+Garment API
+Garment List: http://localhost:8000/clothes/
+View a list of all garments. Searchable by query parameters (e.g., cloth_type, size).
+Method: GET
+
+Publish Garment: http://localhost:8000/clothes/publish/
+Allow authenticated users to publish a new garment using a form.
+Method: GET, POST
+
+Unpublish Garment: http://localhost:8000/clothes//unpublish/
+Allow authenticated users to delete their own garments.
+Method: DELETE
+
+Update Garment: http://localhost:8000/clothes//update/
+Allow authenticated users to update their own garments.
+Method: PUT,PATCH
+
+🧪 Testing
+1. Run Tests
+Tests are located in the tests folder. To run the tests:
+docker ps -> id
+docker exec -it marketplace-db-1 psql -U postgres
+ALTER USER admin WITH CREATEDB;
+\q exit
+
+docker-compose run dj python manage.py test
+
+2. Test Scenarios
+test_publish_garment
+Purpose: Verifies that an authenticated user can successfully publish a new garment.
+Explanation: The test sends a POST request with garment details and ensures the response status is 201 Created, confirming the garment was published.
+
+2. test_unpublish_garment
+Purpose: Tests whether an authenticated user can unpublish (delete) a garment they own.
+Explanation: The test sends a DELETE request for the garment and ensures the response status is 204 No Content, indicating successful deletion.
+
+3. test_unpublish_garment_by_other_user
+Purpose: Ensures that a user cannot unpublish a garment published by someone else.
+Explanation: The test simulates another user attempting to delete the garment and expects a 403 Forbidden response, validating proper permission handling.
+
+4. test_update_garment
+Purpose: Confirms that an authenticated user can update the details of a garment they own.
+Explanation: The test sends a PUT request with updated garment details and verifies a 200 OK response, ensuring the updates are applied successfully.
+
+5. test_delete_garment_by_other_user
+Purpose: Verifies that a user cannot delete a garment owned by another user.
+Explanation: The test simulates another user attempting to delete the garment and expects a 403 Forbidden response, demonstrating proper access control.
+
+📄 License
+This project is licensed under the MIT License.
+
+🤝 Contributing
+Contributions are welcome! Please fork this repository and submit a pull request.
+
