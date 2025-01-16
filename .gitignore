@@ -3,7 +3,7 @@
 *.pyo
 *.pyd
 __pycache__/
-/__pycache__/
+marketplace/__pycache__/
 *.db
 *.sqlite3
 *.log
@@ -17,8 +17,8 @@ __pycache__/
 *.log
 local_settings.py
 db.sqlite3
-/staticfiles/
-staticfiles/
+marketplace/staticfiles/
+marketplace/staticfiles
 media/
 
 # Virtual environment
