@@ -1,0 +1,98 @@
+{
+	"info": {
+		"_postman_id": "462e5c08-3150-49aa-9482-c9ebd4eaf99b",
+		"name": "MarketPlace",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8459630"
+	},
+	"item": [
+		{
+			"name": "api/token",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "clothes/publish",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM3MDU0MDc4LCJpYXQiOjE3MzcwNTA0NzgsImp0aSI6IjIxMzExY2U4MWI0ZjQ3MTdiNmY3ZGIzZGIzMWFhMGU1IiwidXNlcl9pZCI6MX0.yWpwTibgMFfNAVOZBV0jNxC993DKCjGW5dm40CipQQo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "cloth_type",
+							"value": "pants",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "good price",
+							"type": "text"
+						},
+						{
+							"key": "size",
+							"value": "M",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "12.5",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/clothes/publish/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"clothes",
+						"publish",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update/clothes",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "get/clothes",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}

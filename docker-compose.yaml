@@ -1,0 +1,34 @@
+services:
+  db:
+    image: postgres:13
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    env_file:
+      - .env
+    networks:
+      - marketpalce-network
+  pgadmin:
+    image: dpage/pgadmin4
+    ports:
+      - "8080:80"
+    depends_on:
+      - db
+    env_file:
+      - .env
+    networks:
+      - marketpalce-network
+  dj:
+    build: .
+
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    networks:
+      - marketpalce-network
+volumes:
+  postgres_data:
+networks:
+  marketpalce-network:
